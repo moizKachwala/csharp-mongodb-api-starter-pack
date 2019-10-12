@@ -1,21 +1,21 @@
-namespace TodoApp.Models
+namespace TopCoderStarterApp.Models
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    public interface ITodoRepository
+    public interface IUserRepository
     {
         // api/[GET]
-        Task<IEnumerable<Todo>> GetAllTodos();
+        Task<IEnumerable<User>> GetAllUsers();
 
         // api/1/[GET]
-        Task<Todo> GetTodo(long id);
+        Task<User> GetUser(long id);
 
         // api/[POST]
-        Task Create(Todo todo);
+        Task Create(User user);
 
         // api/[PUT]
-        Task<bool> Update(Todo todo);
+        Task<bool> Update(User user);
 
         // api/1/[DELETE]
         Task<bool> Delete(long id);

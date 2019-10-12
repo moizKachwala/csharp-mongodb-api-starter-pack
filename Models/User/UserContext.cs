@@ -1,19 +1,19 @@
-namespace TodoApp.Models
+namespace TopCoderStarterApp.Models
 {
-    using TodoApp;
+    using TopCoderStarterApp;
     using MongoDB.Driver;
     using System;
 
-    public class TodoContext: ITodoContext
+    public class UserContext: IUserContext
     {
         private readonly IMongoDatabase _db;
 
-        public TodoContext(MongoDBConfig config)
+        public UserContext(MongoDBConfig config)
         {
             var client = new MongoClient(config.ConnectionString);
             _db = client.GetDatabase(config.Database);
         }
 
-        public IMongoCollection<Todo> Todos => _db.GetCollection<Todo>("Todos");
+        public IMongoCollection<User> Users => _db.GetCollection<User>("Users");
     }
 }

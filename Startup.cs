@@ -10,10 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using TodoApp.Models;
+using TopCoderStarterApp.Models;
 using MongoDB.Driver;
 
-namespace TodoApp
+namespace TopCoderStarterApp
 {
     public class Startup
     {
@@ -30,10 +30,10 @@ namespace TodoApp
             var config = new ServerConfig();
             Configuration.Bind(config);           
 
-            var todoContext = new TodoContext(config.MongoDB);
-            var repo = new TodoRepository(todoContext);
+            var userContext = new UserContext(config.MongoDB);
+            var repo = new UserRepository(userContext);
 
-            services.AddSingleton<ITodoRepository>(repo);
+            services.AddSingleton<IUserRepository>(repo);
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

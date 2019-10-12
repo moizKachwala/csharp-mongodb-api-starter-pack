@@ -1,4 +1,4 @@
-namespace TodoApp
+namespace TopCoderStarterApp
 {
     public class ServerConfig
     {

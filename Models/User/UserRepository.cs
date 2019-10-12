@@ -1,4 +1,4 @@
-namespace TodoApp.Models
+namespace TopCoderStarterApp.Models
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -6,51 +6,51 @@ namespace TodoApp.Models
     using MongoDB.Bson;
     using System.Linq;
 
-    public class TodoRepository : ITodoRepository
+    public class UserRepository : IUserRepository
     {
-        private readonly ITodoContext _context;
+        private readonly IUserContext _context;
 
-        public TodoRepository(ITodoContext context)
+        public UserRepository(IUserContext context)
         {
             _context = context;
         }
 
-        public async Task<IEnumerable<Todo>> GetAllTodos()
+        public async Task<IEnumerable<User>> GetAllUsers()
         {
             return await _context
-                            .Todos
+                            .Users
                             .Find(_ => true)
                             .ToListAsync();
         }
-        public Task<Todo> GetTodo(long id)
+        public Task<User> GetUser(long id)
         {
-            FilterDefinition<Todo> filter = Builders<Todo>.Filter.Eq(m => m.Id, id);
+            FilterDefinition<User> filter = Builders<User>.Filter.Eq(m => m.Id, id);
             return _context
-                    .Todos
+                    .Users
                     .Find(filter)
                     .FirstOrDefaultAsync();
         }
 
-        public async Task Create(Todo todo)
+        public async Task Create(User user)
         {
-            await _context.Todos.InsertOneAsync(todo);
+            await _context.Users.InsertOneAsync(user);
         }
-        public async Task<bool> Update(Todo todo)
+        public async Task<bool> Update(User user)
         {
             ReplaceOneResult updateResult =
                 await _context
-                        .Todos
+                        .Users
                         .ReplaceOneAsync(
-                            filter: g => g.Id == todo.Id,
-                            replacement: todo);
+                            filter: g => g.Id == user.Id,
+                            replacement: user);
             return updateResult.IsAcknowledged
                     && updateResult.ModifiedCount > 0;
         }
         public async Task<bool> Delete(long id)
         {
-            FilterDefinition<Todo> filter = Builders<Todo>.Filter.Eq(m => m.Id, id);
+            FilterDefinition<User> filter = Builders<User>.Filter.Eq(m => m.Id, id);
             DeleteResult deleteResult = await _context
-                                                .Todos
+                                                .Users
                                                 .DeleteOneAsync(filter);
             return deleteResult.IsAcknowledged
                 && deleteResult.DeletedCount > 0;
@@ -58,7 +58,7 @@ namespace TodoApp.Models
 
         public async Task<long> GetNextId()
         {
-            return await _context.Todos.CountDocumentsAsync(new BsonDocument()) + 1;
+            return await _context.Users.CountDocumentsAsync(new BsonDocument()) + 1;
         }
     }
 }
