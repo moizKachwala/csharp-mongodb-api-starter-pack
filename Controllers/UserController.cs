@@ -9,11 +9,11 @@ namespace TopCoderStarterApp.Controllers
 
     [Produces("application/json")]
     [Route("api/[Controller]")]
-    public class UserController: Controller
+    public class UsersController: Controller
     {
         private readonly IUserRepository _repo;
 
-        public UserController(IUserRepository repo)
+        public UsersController(IUserRepository repo)
         {
             _repo = repo;
         }
