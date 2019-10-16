@@ -17,6 +17,17 @@ It will perform basic CRUD operations. Postman suite attached in the repository 
 ## Steps to stop the container
 `docker-compose down`
 
+### MONGO Configuration in docker compose
+
+`MongoDB__NAME` - Database Name
+
+`MongoDB__Host` - Database Host
+
+`MongoDB__PORT` - Database Port
+
+`MongoDB__USER` - Database User
+
+`MongoDB__PASSWORD` - Database Password
 
 # API's dcoumentation
 `http://localhost:5000/api/users`
