@@ -7,7 +7,7 @@ namespace TopCoderStarterApp.Controllers
 
     [Produces("application/json")]
     [Route("api/[Controller]")]
-    public class UsersController: Controller
+    public class UserController: Controller
     {
         private readonly UserRepository _repo;
 
