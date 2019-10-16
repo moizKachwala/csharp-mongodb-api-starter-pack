@@ -2,9 +2,8 @@ namespace TopCoderStarterApp.Models
 {
     using TopCoderStarterApp;
     using MongoDB.Driver;
-    using System;
 
-    public class UserContext: IUserContext
+    public class UserContext
     {
         private readonly IMongoDatabase _db;
 

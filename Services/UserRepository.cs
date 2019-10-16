@@ -4,13 +4,12 @@ namespace TopCoderStarterApp.Models
     using System.Threading.Tasks;
     using MongoDB.Driver;
     using MongoDB.Bson;
-    using System.Linq;
 
-    public class UserRepository : IUserRepository
+    public class UserRepository
     {
-        private readonly IUserContext _context;
+        private readonly UserContext _context;
 
-        public UserRepository(IUserContext context)
+        public UserRepository(UserContext context)
         {
             _context = context;
         }

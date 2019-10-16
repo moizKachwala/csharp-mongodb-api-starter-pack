@@ -1,9 +1,7 @@
 namespace TopCoderStarterApp.Controllers
 {
     using TopCoderStarterApp.Models;
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
 
@@ -11,9 +9,9 @@ namespace TopCoderStarterApp.Controllers
     [Route("api/[Controller]")]
     public class UserController: Controller
     {
-        private readonly IUserRepository _repo;
+        private readonly UserRepository _repo;
 
-        public UserController(IUserRepository repo)
+        public UserController(UserRepository repo)
         {
             _repo = repo;
         }

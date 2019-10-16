@@ -33,7 +33,7 @@ namespace TopCoderStarterApp
             var userContext = new UserContext(config.MongoDB);
             var repo = new UserRepository(userContext);
 
-            services.AddSingleton<IUserRepository>(repo);
+            services.AddSingleton<UserRepository>(repo);
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
