@@ -1,13 +1,13 @@
 namespace TopCoderStarterApp.Models
 {
-    using TopCoderStarterApp;
     using MongoDB.Driver;
+    using TopCoderStarterApp;
 
-    public class UserContext
+    public class ApiDBContext
     {
         private readonly IMongoDatabase _db;
 
-        public UserContext(MongoDBConfig config)
+        public ApiDBContext(MongoDBConfig config)
         {
             var client = new MongoClient(config.ConnectionString);
             _db = client.GetDatabase(config.Database);

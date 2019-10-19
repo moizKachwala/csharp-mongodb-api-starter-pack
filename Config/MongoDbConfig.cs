@@ -8,9 +8,9 @@ namespace TopCoderStarterApp
         public string User { get; set; }
         public string Password { get; set; }
 
-        public string ConnectionString 
+        public string ConnectionString
         {
-            get 
+            get
             {
                 if (string.IsNullOrEmpty(User) || string.IsNullOrEmpty(Password))
                     return $@"mongodb://{Host}:{Port}";

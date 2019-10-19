@@ -20,13 +20,13 @@ namespace TopCoderStarterApp
         public void ConfigureServices(IServiceCollection services)
         {
             var config = new ServerConfig();
-            Configuration.Bind(config);           
+            Configuration.Bind(config);
 
-            var userContext = new UserContext(config.MongoDB);
+            var userContext = new ApiDBContext(config.MongoDB);
             var repo = new UserRepository(userContext);
 
             services.AddSingleton<UserRepository>(repo);
-            
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

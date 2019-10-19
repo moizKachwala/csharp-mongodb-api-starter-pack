@@ -1,17 +1,17 @@
 namespace TopCoderStarterApp.Controllers
 {
-    using TopCoderStarterApp.Models;
+    using Microsoft.AspNetCore.Mvc;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Mvc;
+    using TopCoderStarterApp.Models;
 
     [Produces("application/json")]
     [Route("api/[Controller]")]
-    public class UserController: Controller
+    public class UsersController : Controller
     {
         private readonly UserRepository _repo;
 
-        public UserController(UserRepository repo)
+        public UsersController(UserRepository repo)
         {
             _repo = repo;
         }
@@ -31,7 +31,7 @@ namespace TopCoderStarterApp.Controllers
 
             if (user == null)
                 return new NotFoundResult();
-            
+
             return new ObjectResult(user);
         }
 
